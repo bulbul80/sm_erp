@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<body>
+<div class="container">
+    <h2>Attendence</h2>
+    <hr>
+    <!--        <p>Start Date: <input type="text" id="start_datepicker"></p>-->
+    <!--        <p>End Date: <input type="text" id="end_datepicker"></p>-->
+    <div>
+        <form action="" method="GET"> {% csrf_token %}
+            Start Date:{{ form.start_date }}&nbsp;&nbsp; End Date:{{ form.end_date}}<br/>
+            <input type="submit" name="submit" value="See Results">
+        </form>
+
+    </div>
+    {{error}}
+
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">In Time</th>
+            <th scope="col">Out Time</th>
+            <th scope="col">duration</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for att in attendence_list%}
+        <tr>
+            <td>{{att.employee}}</td>
+            <td>{{att.att_date}}</td>
+            <td>{{att.time_in}}</td>
+            <td>{{att.time_out}}</td>
+            <td>{{att.blood_group}}</td>
+        </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+{% endblock %}
+
+
