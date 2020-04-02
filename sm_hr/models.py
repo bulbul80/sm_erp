@@ -207,7 +207,7 @@ class JobDescription(models.Model):
         return f'{self.employee,self.designation}'
 
 
-class Attendence(SerializableModel):
+class Attendance(SerializableModel):
     employee = models.ForeignKey(EmployeePersonalInformation, on_delete=models.CASCADE, null=True)
     att_date = models.DateField(null=False, blank=False,  default=datetime.now)
     time_in = models.TimeField(null=False, blank=False, default=datetime.now)

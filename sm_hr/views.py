@@ -12,7 +12,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from sm_hr.models import BloodGroup
 from sm_hr.models import EmployeePersonalInformation
-from sm_hr.models import Attendence
+from sm_hr.models import Attendance
 from rest_framework.decorators import api_view
 from django.views.generic import (
     CreateView,
@@ -57,13 +57,13 @@ class DateRangeForm(forms.Form):
 
 
 @api_view(['GET'])
-def attendence_list(request):
+def attendance_list(request):
 
     if request.method == 'GET':
         f = DateRangeForm(request.GET)
         if request.GET.get('start_date') and request.GET.get('end_date'):
             try:
-                attendence = Attendence.objects.filter(
+                attendance = Attendance.objects.filter(
                     att_date__range=(datetime.datetime.strptime(request.GET.get('start_date'), '%m/%d/%Y').date(),
                                      datetime.datetime.strptime(request.GET.get('end_date'), '%m/%d/%Y').date()))
                 pass
@@ -72,15 +72,15 @@ def attendence_list(request):
             pass
         else:
 
-            #attendence = Attendence.objects.all()
-            attendence = Attendence.objects.filter(
+            #attendance = Attendance.objects.all()
+            attendance = Attendance.objects.filter(
                 att_date__range=(datetime.date.today(),
                                  datetime.date.today()))
             pass
 
-        attendence_list = list(attendence)
+        attendance_list = list(attendance)
 
-        return render(request, 'index.html', {'attendence_list': attendence_list,
+        return render(request, 'index.html', {'attendance_list': attendance_list,
                                               'form': f})
 
 

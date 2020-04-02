@@ -62,12 +62,12 @@ class JobDescriptionAdmin(admin.ModelAdmin):
     list_display = ('employee', 'remarks')
     pass
 
-class AttendenceAdmin(admin.ModelAdmin):
+class AttendanceAdmin(admin.ModelAdmin):
     list_display = ('employee', 'att_date', 'time_in', 'time_out', 'remarks')
     pass
 
 admin.site.register(EmployeePersonalInformation, EmployeePersonalInformationAdmin)
-admin.site.register(Attendence, AttendenceAdmin)
+admin.site.register(Attendance, AttendanceAdmin)
 admin.site.register(JobDescription, JobDescriptionAdmin)
 admin.site.register(Designation, DesignationAdmin)
 admin.site.register(BloodGroup, BloodGroupAdmin)

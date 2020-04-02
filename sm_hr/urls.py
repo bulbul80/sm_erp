@@ -6,6 +6,6 @@ urlpatterns = [
     #path('', views.home),
     path('home1', views.home1),
     path('about', views.about),
-    path('', views.attendence_list),
+    path('', views.attendance_list),
     path('get_users', views.get_users)
 ]
