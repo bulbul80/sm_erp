@@ -28,13 +28,16 @@
         </tr>
         </thead>
         <tbody>
+        {% set count = 1 %}
         {% for att in attendance_list%}
+            {{ count }}
+            {% set count = count + 1 %}
         <tr>
             <td>{{att.employee}}</td>
             <td>{{att.att_date}}</td>
             <td>{{att.time_in}}</td>
             <td>{{att.time_out}}</td>
-            <td>{{att.blood_group}}</td>
+            <td></td>
         </tr>
         {% endfor %}
 
